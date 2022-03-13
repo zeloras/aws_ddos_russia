@@ -1,0 +1,3 @@
+ec2-keypair.pem
+instances_ip.txt
+.env

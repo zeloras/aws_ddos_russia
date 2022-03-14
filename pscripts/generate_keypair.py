@@ -7,5 +7,5 @@ try:
     key_pair = ec2.create_key_pair(KeyName='ec2-keypair')
     KeyPairOut = str(key_pair.key_material)
     outfile.write(KeyPairOut)
-except botocore.exceptions.ClientError:
+except (botocore.exceptions.ClientError, PermissionError):
     print('Pem file probably already exists')

@@ -25,19 +25,19 @@ userdata = """#cloud-config
      - echo "/swapfile swap swap defaults 0 0"|tee -a /etc/fstab
 """ % instance_region
 
-instances = ec2.create_instances(
-    ImageId=instance_id,
-    MinCount=instance_count,
-    MaxCount=instance_count,
-    InstanceType='t2.micro',
-    KeyName='ec2-keypair',
-    UserData=userdata
- )
-
-for instance in instances:
-    print(f'EC2 instance "{instance.id}" has been launched')
-
-    instance.wait_until_running()
-    print(f'EC2 instance "{instance.id}" has been started')
+# instances = ec2.create_instances(
+#     ImageId=instance_id,
+#     MinCount=instance_count,
+#     MaxCount=instance_count,
+#     InstanceType='t2.micro',
+#     KeyName='ec2-keypair',
+#     UserData=userdata
+#  )
+#
+# for instance in instances:
+#     print(f'EC2 instance "{instance.id}" has been launched')
+#
+#     instance.wait_until_running()
+#     print(f'EC2 instance "{instance.id}" has been started')
 
 
